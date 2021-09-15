@@ -48,7 +48,7 @@ ShippingTotalManager.prototype.totalShipmentAmount = function (newShipmentTotal,
 }
 
 ShippingTotalManager.prototype.readjustSummarySection = function (orderTotal, newShipmentTotal, oldShipmentTotal, newTaxTotal, oldTaxTotal) {
-  var newOrderTotal = orderTotal + this.totalShipmentAmount(newShipmentTotal, oldShipmentTotal) + (newTaxTotal - oldTaxTotal)
+  var newOrderTotal = orderTotal + this.totalShipmentAmount(newShipmentTotal, oldShipmentTotal)
   this.taxTotal.html(accounting.formatMoney(newTaxTotal, this.formatOptions))
   this.shipmentTotal.html(accounting.formatMoney(newShipmentTotal, this.formatOptions))
   return this.orderTotal.html(accounting.formatMoney(accounting.toFixed(newOrderTotal, 10), this.formatOptions))
